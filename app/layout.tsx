@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 import "./globals.css";
 import { AppProviders } from "@/components/providers/app-providers";
 import { getRestaurant } from "@/lib/data";
+import { Analytics } from "@vercel/analytics/next"
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
