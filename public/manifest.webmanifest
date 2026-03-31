@@ -1,0 +1,21 @@
+{
+  "name": "Maison Saffron",
+  "short_name": "Saffron",
+  "description": "Premium QR-driven restaurant ordering web app",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0E0C0A",
+  "theme_color": "#0E0C0A",
+  "icons": [
+    {
+      "src": "/images/restaurant-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/images/restaurant-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Restaurant {
+  id           String      @id @default(cuid())
+  name         String
+  tagline      String?     @default("Crafted flavor, table-side ease")
+  logo         String?
+  currency     String      @default("FCFA")
+  primaryColor String      @default("#C9A96E")
+  phone        String?
+  email        String?
+  address      String?
+  openingHours String?
+  tables       Table[]
+  menuItems    MenuItem[]
+  categories   Category[]
+  orders       Order[]
+  reviews      Review[]
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}
+
+model Table {
+  id           String      @id @default(cuid())
+  number       Int
+  capacity     Int         @default(4)
+  qrCodeUrl    String?
+  status       TableStatus @default(FREE)
+  restaurantId String
+  restaurant   Restaurant  @relation(fields: [restaurantId], references: [id])
+  orders       Order[]
+
+  @@unique([restaurantId, number])
+}
+
+model Category {
+  id           String      @id @default(cuid())
+  name         String
+  order        Int         @default(0)
+  restaurantId String
+  restaurant   Restaurant  @relation(fields: [restaurantId], references: [id])
+  items        MenuItem[]
+
+  @@unique([restaurantId, name])
+}
+
+model MenuItem {
+  id           String      @id @default(cuid())
+  name         String
+  description  String?
+  price        Float
+  image        String?
+  available    Boolean     @default(true)
+  categoryId   String
+  category     Category    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  restaurantId String
+  restaurant   Restaurant  @relation(fields: [restaurantId], references: [id])
+  orderItems   OrderItem[]
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}
+
+model Order {
+  id           String      @id @default(cuid())
+  tableId      String?
+  table        Table?      @relation(fields: [tableId], references: [id])
+  restaurantId String
+  restaurant   Restaurant  @relation(fields: [restaurantId], references: [id])
+  orderType    OrderType   @default(DINE_IN)
+  customerName String?
+  customerPhone String?
+  deliveryAddress String?
+  status       OrderStatus @default(PENDING)
+  note         String?
+  total        Float       @default(0)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  items        OrderItem[]
+}
+
+model OrderItem {
+  id         String   @id @default(cuid())
+  orderId    String
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  menuItemId String
+  menuItem   MenuItem @relation(fields: [menuItemId], references: [id])
+  quantity   Int
+  price      Float
+}
+
+model Review {
+  id           String     @id @default(cuid())
+  author       String
+  message      String
+  rating       Int
+  restaurantId String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  createdAt    DateTime   @default(now())
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+enum TableStatus {
+  FREE
+  OCCUPIED
+}
+
+enum OrderStatus {
+  PENDING
+  IN_PROGRESS
+  SERVED
+  CANCELLED
+}
+
+enum OrderType {
+  DINE_IN
+  DELIVERY
+}
