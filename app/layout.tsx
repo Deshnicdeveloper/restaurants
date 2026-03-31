@@ -52,8 +52,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const primaryMuted = darkenHexColor(primaryColor, 0.7);
 
   return (
+    
     <html lang="en" suppressHydrationWarning>
       <body
+      
         className={`${display.variable} ${body.variable} ${accent.variable} antialiased`}
         style={
           {

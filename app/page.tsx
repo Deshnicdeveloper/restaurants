@@ -6,6 +6,7 @@ import { getRestaurant } from "@/lib/data";
 import { PageShell } from "@/components/shared/PageShell";
 import { Button } from "@/components/shared/Button";
 import { formatCurrency } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/next"
 
 export const dynamic = "force-dynamic";
 
@@ -42,6 +43,7 @@ export default async function HomePage() {
 
   return (
     <PageShell className="pb-20">
+      <Analytics/>
       <section className="safe-top -mx-4 overflow-hidden border-y border-app-border bg-app-surface md:mx-0 md:rounded-3xl md:border">
         <div className="relative min-h-[78svh]">
           <Image
