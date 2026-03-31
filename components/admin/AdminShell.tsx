@@ -26,7 +26,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
     <div className="mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 gap-0 md:grid-cols-[220px_1fr]">
       <aside className="hidden border-r border-app-border p-6 md:block">
         <p className="accent-label text-[11px] text-app-primary">Admin Console</p>
-        <h2 className="mt-2 text-3xl">Maison Saffron</h2>
+        <h2 className="mt-2 text-3xl">Pablo Resto</h2>
 
         <nav className="mt-8 space-y-1">
           {links.map((link) => {

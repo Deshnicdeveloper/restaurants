@@ -9,7 +9,7 @@ async function main() {
     update: {},
     create: {
       id: "demo-restaurant",
-      name: "Maison Saffron",
+      name: "Pablo Resto",
       tagline: "A luxury table experience, now one scan away.",
       currency: "FCFA",
       primaryColor: "#C9A96E",

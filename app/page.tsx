@@ -56,7 +56,7 @@ export default async function HomePage() {
           <div className="relative flex min-h-[78svh] items-end p-6 md:p-10">
             <div className="max-w-2xl rounded-2xl border border-app-border bg-app-bg/55 p-5 backdrop-blur md:p-7">
               <p className="accent-label text-[11px] text-app-primary">Fine Dining • Smart Ordering</p>
-              <h1 className="mt-3 text-5xl leading-[0.95] md:text-7xl">{restaurant?.name ?? "Maison Saffron"}</h1>
+              <h1 className="mt-3 text-5xl leading-[0.95] md:text-7xl">{restaurant?.name ?? "Pablo Resto"}</h1>
               <p className="mt-4 text-sm text-app-text-muted md:text-base">
                 {restaurant?.tagline ??
                   "An elevated restaurant experience where beautiful spaces, chef-led cuisine, and seamless digital ordering meet."}

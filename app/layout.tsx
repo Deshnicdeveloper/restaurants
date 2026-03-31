@@ -24,7 +24,7 @@ const accent = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Maison Saffron | QR Restaurant Ordering",
+  title: "Pablo Resto | QR Restaurant Ordering",
   description: "Premium mobile-first QR restaurant ordering experience.",
   manifest: "/manifest.webmanifest",
   icons: {
