@@ -9,7 +9,7 @@ Next.js App Router project for a premium, rebrandable restaurant ordering experi
 
 - Next.js 14 (App Router)
 - Tailwind CSS
-- Prisma + MySQL
+- Prisma + PostgreSQL (Prisma Postgres compatible)
 - NextAuth (Credentials)
 - Pusher (optional realtime)
 - QR generation with `qrcode`
@@ -29,7 +29,8 @@ npm install
 cp .env.example .env
 ```
 
-3. Set your `DATABASE_URL` for MySQL database `restaurants`.
+3. Set your Prisma Postgres env values in `.env`:
+   `DATABASE_URL` (pooled `prisma+postgres://...`) and `DIRECT_URL` (`postgres://...`).
 
 4. Generate Prisma client and push schema:
 

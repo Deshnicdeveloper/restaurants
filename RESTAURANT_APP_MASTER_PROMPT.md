@@ -30,7 +30,7 @@ The product must look and feel **premium** — think fine dining meets modern te
 | Framework | Next.js 14+ (App Router) |
 | Styling | Tailwind CSS + custom CSS variables for theming |
 | UI Components | shadcn/ui (or custom components) |
-| Database | MYSQL
+| Database | PostgreSQL (Prisma Postgres)
 | DBNAME | restaurants
 | Auth (Admin) | NextAuth.js (credentials provider) |
 | Real-time | Pusher |
